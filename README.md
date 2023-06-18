@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+## Acknowledgments
+>>>>>>> 74ebdc573844bce9a259be46e3c132f17136a6de
 
 #### Rockchip的Kernel等部分源码来源 https://github.com/coolsnowwolf/lede
 #### ipq807x的Kernel等部分源码来源 https://github.com/Boos4721/openwrt
@@ -11,5 +15,4 @@
 - [Boos4721](https://github.com/Boos4721/openwrt)
 - [GitHub](https://github.com)
 - [GitHub Actions](https://github.com/features/actions)
-
 
