@@ -276,6 +276,7 @@ jobs:
         cd openwrt; kernel_v="$(make --file=info.mk kernel_version)"; cd -
         cp -rf openwrt/bin/targets/*/*/*{combined,sysupgrade}* ./firmware/${{matrix.target}}/ || true
         cd openwrt/bin/targets/*/*/
+        tar -cf targets.tar .*
         mv -f profiles.json profiles.json.b || true
         cp $GITHUB_WORKSPACE/openwrt/.config ${{matrix.target}}.config || true
         cp $GITHUB_WORKSPACE/openwrt/build_dir/target-*/linux-*/linux-*/.config ${{matrix.target}}_kernel.config || true
@@ -307,9 +308,6 @@ jobs:
         TARGET: "/www/wwwroot/op.supes.top/releases/tmp/"
 
     - name: Upload firmware for artifact
-      run: |
-        cd openwrt/bin/targets/*/*/
-        tar -cf targets.tar .*
       uses: actions/upload-artifact@main
       continue-on-error: true
       if: env.UPLOAD_FIRMWARE_FOR_ARTIFACT == 'true'
