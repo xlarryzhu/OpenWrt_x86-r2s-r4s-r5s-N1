@@ -314,7 +314,7 @@ jobs:
       with:
         name: ${{ env.VERSION }}_${{matrix.target}}
         path: |
-          openwrt/**/targets.tar
+          openwrt/bin/targets/*/*/targets.tar
 
     - name: Upload firmware to cowtransfer
       if: env.UPLOAD_FIRMWARE_TO_COWTRANSFER == 'true'
