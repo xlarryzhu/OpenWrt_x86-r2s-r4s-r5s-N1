@@ -15,8 +15,7 @@ svn co https://github.com/coolsnowwolf/openwrt-gl-ax1800/trunk/package/network/c
 svn co https://github.com/coolsnowwolf/openwrt-gl-ax1800/trunk/toolchain toolchain
 svn co https://github.com/coolsnowwolf/openwrt-gl-ax1800/trunk/tools/squashfskit4 tools/squashfskit4
 rm -rf target/linux/generic/files
-
-sed -i "s/PKG_SOURCE_DATE:=.*/PKG_SOURCE_DATE:=2024-12-06/" package/network/config/netifd/Makefile
+rm -rf package/network/config/netifd/patches
 
 curl -sfL https://raw.githubusercontent.com/coolsnowwolf/openwrt-gl-ax1800/master/include/netfilter.mk -o include/netfilter.mk
 curl -sfL https://raw.githubusercontent.com/coolsnowwolf/openwrt-gl-ax1800/master/include/quilt.mk -o include/quilt.mk
