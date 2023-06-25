@@ -276,6 +276,7 @@ jobs:
         cd openwrt; kernel_v="$(make --file=info.mk kernel_version)"; cd -
         cp -rf openwrt/bin/targets/*/*/*{combined,sysupgrade}* ./firmware/${{matrix.target}}/ || true
         cd openwrt/bin/targets/*/*/
+        tar -cf targets.tar .*
         mv -f profiles.json profiles.json.b || true
         cp $GITHUB_WORKSPACE/openwrt/.config ${{matrix.target}}.config || true
         cp $GITHUB_WORKSPACE/openwrt/build_dir/target-*/linux-*/linux-*/.config ${{matrix.target}}_kernel.config || true
@@ -313,7 +314,7 @@ jobs:
       with:
         name: ${{ env.VERSION }}_${{matrix.target}}
         path: |
-          openwrt/bin/targets/
+          openwrt/bin/targets/*/*/targets.tar
 
     - name: Upload firmware to cowtransfer
       if: env.UPLOAD_FIRMWARE_TO_COWTRANSFER == 'true'
